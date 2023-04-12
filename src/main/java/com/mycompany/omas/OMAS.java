@@ -11,6 +11,7 @@ package com.mycompany.omas;
 public class OMAS {
 
     public static void main(String[] args) {
+        test
         System.out.println("Hello World!");
     }
 }
