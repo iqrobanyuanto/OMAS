@@ -23,8 +23,8 @@ public class OMAS {
         man.requestLembur();
         man.hitungGaji();
         System.out.println(man.totalGaji);
-        
-        
-        
+        System.out.println(man.totalJamKerja);
+        System.out.println(man.totalTerlambat);
+        System.out.println(man.totalLembur);
     }
 }

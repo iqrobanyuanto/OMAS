@@ -27,7 +27,7 @@ public class Employee {
     protected int standarGaji;
     protected int standarMasuk;
     protected int standarKeluar;
-    //Untuk kebutuhan sistem
+
     public Kehadiran tapping = new Kehadiran();
     public int totalLembur = 0;
     public int totalTerlambat = 0;
@@ -42,7 +42,7 @@ public class Employee {
         this.nomor_telepon = nomor_telepon;
         this.alamat = alamat;
     }
-    
+    //Untuk melakukan request lembur
     public StatusLembur requestLembur(){
         System.out.print("Masukan Lama Lembur: ");
         int waktuLembur = input.nextInt();
@@ -50,11 +50,12 @@ public class Employee {
         statuslembur = ha;
         return statuslembur;
     }
-    
+    //Untuk perhitungan hasil total gaji, total jam kerja, total waktu terlambat, total lembur
     public void hitungGaji(){
-        Sistem sis = new Sistem(standarMasuk, standarKeluar, standarGaji, tapping.recordJamMasuk, tapping.recordJamKeluar, totalLembur, statuslembur.waktuLembur);
+        Sistem sis = new Sistem(standarMasuk, standarKeluar, standarGaji, tapping.recordJamMasuk, tapping.recordJamKeluar,statuslembur.waktuLembur);
         totalJamKerja += sis.calculateJam();
         totalTerlambat += sis.calculateTerlambat();
+        totalLembur += sis.calculateLembur();
         totalGaji += (totalJamKerja+sis.calculateLembur()-totalTerlambat) * standarGaji;
     }
 
