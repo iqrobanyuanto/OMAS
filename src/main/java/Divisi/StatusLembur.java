@@ -8,6 +8,7 @@ package Divisi;
  *
  * @author Iqro Banyuanto
  */
+//Digunakan sebagai tipe data output method requestLembur
 public class StatusLembur {
     public String namaEmployee;
     public int waktuLembur;
