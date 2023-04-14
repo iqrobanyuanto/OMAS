@@ -13,35 +13,32 @@ import java.util.List;
  */
 public class Administrator {
     Scanner input = new Scanner(System.in);
-    KumpulanAkun list = new KumpulanAkun();
-    KumpulanEmployee listemp = new KumpulanEmployee();
+    //KumpulanAkun list = new KumpulanAkun();
+    private KumpulanEmployee listemp = new KumpulanEmployee();
     private String ID_administrator;
     private String password;
     private boolean login;
     private Akun akun;
     
-    public Administrator(String id, String password){
+    public Administrator(String id, String pass){
         ID_administrator = id;
-        this.password = password;
-        login();
-        if(login == false){
-            System.out.println("Password Salah!");
-        }else{
-            System.out.println(akun.id+" telah melakukan login");
-        }
+        password = pass;
+        //login();
+        //if(login == false){
+        //    System.out.println("Password Salah!");
+        //}else{
+        //    System.out.println(akun.id+" telah melakukan login");
+        //}
     }
+
+    //public boolean login(){
+    //    login = list.cekAkun(akun);
+    //    return login;
+    //}
     
-    private boolean login(){
-        System.out.println("Masukan Username/ID: ");
-        ID_administrator = input.nextLine();
-        System.out.println("Masukan Password: ");
-        password = input.nextLine();
-        akun.id = ID_administrator;
-        akun.password = password;
-        login = list.cekAkun(akun);
-        return login;
+    public KumpulanEmployee getkumpulanEmployee(){
+        return listemp;
     }
-    
     public void cekIdentitasPegawai(){
         List<Manager> m = listemp.listManager;
         List<Supervisor> s = listemp.listSupervisor;
@@ -65,6 +62,7 @@ public class Administrator {
     }
     
     public void tambahPegawai(){
+        System.out.print("Masukan jabatan: ");
         String jabatan = input.nextLine();
         if(jabatan.equals("Manager")){
             String id = input.nextLine();
@@ -125,12 +123,42 @@ public class Administrator {
             System.out.println("Jabatan tidak ada");
         }   
     }
-    
     public void assignLembur(){
+        System.out.print("Masukan jabatan: ");
+        String jabatan = input.nextLine();
+        System.out.print("Masukan nama karyawan: ");
+        String employee = input.nextLine();
+        
+        if(jabatan.equals("Manager")){
+            for(Manager m : listemp.listManager){
+                if(m.getNamaEmployee().equals(employee)){
+                    m.setCurrentLembur();
+                    break;
+                }
+            }
+        }else if(jabatan.equals("Supervisor")){
+            for(Supervisor m : listemp.listSupervisor){
+                if(m.getNamaEmployee().equals(employee)){
+                    m.setCurrentLembur();
+                    break;
+                }
+            }
+        }else if(jabatan.equals("Pegawai")){
+            for(Pegawai m : listemp.listPegawai){
+                if(m.getNamaEmployee().equals(employee)){
+                    m.setCurrentLembur();
+                    break;
+                }
+            }
+        }else{
+            System.out.println("Jabatan tidak ada");
+        }
         
     }
     public void cekGajiEmployee(){
+        System.out.print("Masukan jabatan: ");
         String jabatan = input.nextLine();
+        System.out.print("Masukan nama karyawan: ");
         String employee = input.nextLine();
         
         if(jabatan.equals("Manager")){
@@ -161,7 +189,9 @@ public class Administrator {
     }
     
     public void cekKeterlambatan(){
+        System.out.print("Masukan jabatan: ");
         String jabatan = input.nextLine();
+        System.out.print("Masukan nama karyawan: ");
         String employee = input.nextLine();
         
         if(jabatan.equals("Manager")){
@@ -190,8 +220,9 @@ public class Administrator {
         }
     }
     public void cetakLaporanKehadiran(){
-        
+        System.out.print("Masukan jabatan: ");
         String jabatan = input.nextLine();
+        System.out.print("Masukan nama karyawan: ");
         String employee = input.nextLine();
         
         if(jabatan.equals("Manager")){

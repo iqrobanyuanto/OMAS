@@ -9,11 +9,13 @@ import java.util.List;
  * @author Iqro Banyuanto
  */
 public class KumpulanAkun {
-    private List<Akun> listAkun;
-    public void addAkun(Akun input){
-        listAkun.add(input);
+    public List<Akun> listAkun = new List<Akun>();
+    public KumpulanAkun(){
+        String id = "agus";
+        String pass = "hehe";
+        Akun n = new Akun(id, pass);
+        listAkun.add(n);
     }
-    
     public boolean cekAkun(Akun input){
         boolean a = (listAkun.contains(input))?false:true;
         return a;

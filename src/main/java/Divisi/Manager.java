@@ -14,6 +14,8 @@ public class Manager extends Employee{
         super(idPegawai, nama, umur, nomor_telepon, alamat);
         this.nama_jabatan = "Manager";
     }
+    
+        //setter getter 
     public String getNamaJabatan(){
         return nama_jabatan;
     }
