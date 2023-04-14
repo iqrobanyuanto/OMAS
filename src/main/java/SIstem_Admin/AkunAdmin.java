@@ -8,11 +8,11 @@ package SIstem_Admin;
  *
  * @author Iqro Banyuanto
  */
-public class Akun {
+public class AkunAdmin {
     public String id;
     public String password;
-    public Akun(){}
-    public Akun(String id, String password){
+    
+    public AkunAdmin(String id, String password){
         this.id = id;
         this.password = password;
     }

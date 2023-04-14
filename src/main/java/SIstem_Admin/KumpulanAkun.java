@@ -4,20 +4,31 @@
  */
 package SIstem_Admin;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Scanner;
 /**
  *
  * @author Iqro Banyuanto
  */
 public class KumpulanAkun {
-    public List<Akun> listAkun = new List<Akun>();
+    private List<AkunAdmin> listAkun = new ArrayList<>();
     public KumpulanAkun(){
-        String id = "agus";
-        String pass = "hehe";
-        Akun n = new Akun(id, pass);
-        listAkun.add(n);
+        
     }
-    public boolean cekAkun(Akun input){
-        boolean a = (listAkun.contains(input))?false:true;
+    public void addAkun(String id, String pass){
+        AkunAdmin r = new AkunAdmin(id, pass);
+        listAkun.add(r);
+    }
+    
+    public boolean cekAkun(String user){
+        boolean a = false;
+        for(AkunAdmin m: listAkun){
+            a = (m.id.equals(user))?false:true;
+        }
         return a;
+    }
+    
+    public List<AkunAdmin> getListAkun(){
+        return listAkun;
     }
 }

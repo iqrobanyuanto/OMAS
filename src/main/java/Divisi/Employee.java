@@ -5,6 +5,7 @@
 package Divisi;
 import java.util.Scanner;
 import SIstem_Admin.*;
+import java.util.List;
 
 /**
  *
@@ -20,7 +21,6 @@ public class Employee {
     private String alamat;
     
     //protected attribute
-    //public List<Kehadiran> list_kehadiran;
     protected String nama_jabatan;
     protected int standarGaji;
     protected int standarMasuk;
@@ -49,6 +49,7 @@ public class Employee {
         System.out.println("Nomor Telepon: "+nomor_telepon);
         System.out.println("Alamat: "+alamat);
     }
+    
     public String getNamaEmployee(){
         return nama;
     }
@@ -64,15 +65,40 @@ public class Employee {
         System.out.print("Masukan Lama Lembur: ");
         int waktuLembur = input.nextInt();
         lembur ha = new lembur(nama, waktuLembur);
+        System.out.println("Lembur Telah diajukan, menunggu konfirmasi dari Administrator");
         currentStatusLembur = ha; 
     }
     //Untuk perhitungan hasil total gaji, total jam kerja, total waktu terlambat, total lembur
+    //Hitung gaji ini dilakukan ketika karyawan telah melakukan tapping masuk dan keluar
     public void hitungGaji(){
         Sistem sis = new Sistem(standarMasuk, standarKeluar, standarGaji, tapping.recordJamMasuk, tapping.recordJamKeluar,currentStatusLembur.waktuLembur);
         totalJamKerja += sis.calculateJam();
         totalTerlambat += sis.calculateTerlambat();
         totalLembur += sis.calculateLembur();
         totalGaji += (totalJamKerja+sis.calculateLembur()-totalTerlambat) * standarGaji;
+    }
+    
+            //setter getter 
+    public String getNamaJabatan(){
+        return nama_jabatan;
+    }
+    public int getStandarGaji(){
+        return standarGaji;
+    }
+    public void setStandarGaji(int gaji){
+        standarGaji = gaji;
+    }
+    public int getStandarJamMasuk(){
+        return standarMasuk;
+    }
+    public void setStandarJamMasuk(int masuk){
+        standarMasuk = masuk;
+    }
+    public int getStandarJamKeluar(){
+        return standarKeluar;
+    }
+    public void setStandarJamKeluar(int keluar){
+        standarKeluar = keluar;
     }
 
 }

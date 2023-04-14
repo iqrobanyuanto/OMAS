@@ -17,6 +17,7 @@ public class Kehadiran {
     public int recordJamMasuk;
     public int recordJamKeluar;
     //tapping untuk memulai kerja
+    
     public String recordMasuk(){
         System.out.println(dateStandard);
         recordTanggalMasuk = dateStandard.toString();

@@ -4,15 +4,16 @@
  */
 package SIstem_Admin;
 import Divisi.*;
+import java.util.ArrayList;
 import java.util.List;
 /**
  *
  * @author Iqro Banyuanto
  */
 public class KumpulanEmployee {
-    public List<Manager> listManager; 
-    public List<Pegawai> listPegawai;
-    public List<Supervisor> listSupervisor;
+    public List<Manager> listManager = new ArrayList<>(); 
+    public List<Pegawai> listPegawai = new ArrayList<>();
+    public List<Supervisor> listSupervisor = new ArrayList<>();
     
     public void addManager(Manager baru){
         listManager.add(baru);

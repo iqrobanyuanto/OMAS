@@ -14,27 +14,4 @@ public class Manager extends Employee{
         super(idPegawai, nama, umur, nomor_telepon, alamat);
         this.nama_jabatan = "Manager";
     }
-    
-        //setter getter 
-    public String getNamaJabatan(){
-        return nama_jabatan;
-    }
-    public int getGaji(){
-        return standarGaji;
-    }
-    public void setGaji(int gaji){
-        standarGaji = gaji;
-    }
-    public int getDurasiMasuk(){
-        return standarMasuk;
-    }
-    public void setDurasiMasuk(int masuk){
-        standarMasuk = masuk;
-    }
-    public int getDurasiKeluar(){
-        return standarKeluar;
-    }
-    public void setDurasiKeluar(int keluar){
-        standarKeluar = keluar;
-    }
 }

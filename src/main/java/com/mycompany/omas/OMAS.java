@@ -3,8 +3,7 @@
  */
 
 package com.mycompany.omas;
-import java.util.Date;
-import java.sql.Time;
+
 import SIstem_Admin.*;
 import Divisi.*;
 /**
@@ -14,28 +13,35 @@ import Divisi.*;
 public class OMAS {
 
     public static void main(String[] args) {
-        Manager man = new Manager("1", "Agung", 10, "08132293213", "jalan batu");
-        man.setDurasiMasuk(0);
-        man.setGaji(3000);
-        man.setDurasiKeluar(9);
-        man.tapping.recordMasuk();
-        man.tapping.recordKeluar();
-        man.requestLembur();
-        man.hitungGaji();
-        System.out.println(man.totalGaji);
-        System.out.println(man.totalJamKerja);
-        System.out.println(man.totalTerlambat);
-        System.out.println(man.totalLembur);
-        Administrator adm = new Administrator("agus","hehe");
-        lembur r = man.getCurrentLembur();
-        man.setCurrentLembur();
-        System.out.println(r.namaEmployee);
-        System.out.println(r.waktuLembur);
-        System.out.println(r.status);
-        KumpulanEmployee a = adm.getkumpulanEmployee();
-        for(Manager t:a.listManager){
-            System.out.println(t.getNamaEmployee());
-        }
+        //Create list Akun
+        KumpulanAkun listAk = new KumpulanAkun();
+        listAk.addAkun("asep", "hehe");
+        //Administration Debug
+        Administrator adm = new Administrator("asep", "hehe",listAk.getListAkun());
+        //adm.tambahPegawai();
+        //adm.tambahPegawai();
+        adm.cekIdentitasPegawai();
+        //adm.tambahPegawai();
+        //adm.cekIdentitasPegawai();
+        //adm.hapusPegawai();
+        //adm.cekIdentitasPegawai();
+        //Employee Debug
+        KumpulanEmployee s = new KumpulanEmployee();
+        Manager a = new Manager("1","Ragil",13,"321321","kuda batu");
+        s.addManager(a);
+        adm.setKumpulanEmployee(s);
+        adm.cekIdentitasPegawai();
+        a.requestLembur();
+        System.out.println(a.getCurrentLembur().namaEmployee);
+        System.out.println(a.getCurrentLembur().status);
+        System.out.println(a.getCurrentLembur().waktuLembur);
+        adm.assignLembur();
+        System.out.println(a.getCurrentLembur().namaEmployee);
+        System.out.println(a.getCurrentLembur().status);
+        System.out.println(a.getCurrentLembur().waktuLembur);
+
+        
+        
         
     }
 }
