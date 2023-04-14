@@ -25,13 +25,15 @@ public class Sistem {
         this.jamKeluar = jamKeluar;
         this.jamLembur = jamLembur;
     }
-    
+    // kalkulasi waktu lembur yang dilakukan dalam 1 hari
     public int calculateLembur(){
         return jamLembur;
     }
+    // kalkulasi waktu kerja normal yang dilakukan dalam 1 hari
     public int calculateJam(){
         return jamKeluar-jamMasuk;
     }
+    // kalkulasi waktu terlambat yang dilakukan dalam 1 hari
     public int calculateTerlambat(){
         int a = (jamMasuk < standarMasuk)?0:(standarKeluar-standarMasuk)-calculateJam();
         return a;

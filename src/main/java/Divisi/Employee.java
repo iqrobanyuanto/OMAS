@@ -19,7 +19,6 @@ public class Employee {
     private int umur;
     private String nomor_telepon;
     private String alamat;
-    private StatusLembur statuslembur;
     
     //protected attribute
     //public List<Kehadiran> list_kehadiran;
@@ -28,6 +27,7 @@ public class Employee {
     protected int standarMasuk;
     protected int standarKeluar;
 
+    private StatusLembur statuslembur;
     public Kehadiran tapping = new Kehadiran();
     public int totalLembur = 0;
     public int totalTerlambat = 0;
@@ -41,6 +41,17 @@ public class Employee {
         this.umur = umur;
         this.nomor_telepon = nomor_telepon;
         this.alamat = alamat;
+    }
+        
+    public void showIdentity(){
+        System.out.println("ID: "+idPegawai);
+        System.out.println("Nama: "+nama);
+        System.out.println("Umur: "+umur);
+        System.out.println("Nomor Telepon: "+nomor_telepon);
+        System.out.println("Alamat: "+alamat);
+    }
+    public String getNamaEmployee(){
+        return nama;
     }
     //Untuk melakukan request lembur
     public StatusLembur requestLembur(){
@@ -58,5 +69,6 @@ public class Employee {
         totalLembur += sis.calculateLembur();
         totalGaji += (totalJamKerja+sis.calculateLembur()-totalTerlambat) * standarGaji;
     }
+
 
 }
