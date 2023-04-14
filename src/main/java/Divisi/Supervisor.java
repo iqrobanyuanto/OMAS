@@ -11,7 +11,7 @@ import java.util.Date;
  * @author Iqro Banyuanto
  */
 public class Supervisor extends Employee{
-    protected Supervisor(String idPegawai, String nama, int umur, String nomor_telepon,String alamat){
+    public Supervisor(String idPegawai, String nama, int umur, String nomor_telepon,String alamat){
         super(idPegawai, nama, umur, nomor_telepon, alamat);
         this.nama_jabatan = "Supervisor";
     }

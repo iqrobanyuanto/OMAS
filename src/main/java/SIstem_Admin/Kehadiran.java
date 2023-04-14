@@ -10,17 +10,20 @@ import java.util.Date;
  */
 public class Kehadiran {
     private Date dateStandard = new Date();
+    //Sebagai record tertulis dengan format tanggal
     public String recordTanggalMasuk;
     public String recordTanggalKeluar;
+    //Sebagai record tertulis dengan format jam
     public int recordJamMasuk;
     public int recordJamKeluar;
-    
+    //tapping untuk memulai kerja
     public String recordMasuk(){
         System.out.println(dateStandard);
         recordTanggalMasuk = dateStandard.toString();
         recordJamMasuk = dateStandard.getHours();
         return recordTanggalMasuk;
     }
+    //tapping untuk selesai kerja
     public String recordKeluar(){
         recordTanggalKeluar =  dateStandard.toString();
         recordJamKeluar = dateStandard.getHours()+5;
