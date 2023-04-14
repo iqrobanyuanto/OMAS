@@ -1,10 +1,9 @@
-/*
+    /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Divisi;
 import java.util.Scanner;
-import java.util.Date;
 import SIstem_Admin.*;
 
 /**
@@ -27,7 +26,7 @@ public class Employee {
     protected int standarMasuk;
     protected int standarKeluar;
 
-    private StatusLembur statuslembur;
+    private lembur currentStatusLembur;
     public Kehadiran tapping = new Kehadiran();
     public int totalLembur = 0;
     public int totalTerlambat = 0;
@@ -53,22 +52,27 @@ public class Employee {
     public String getNamaEmployee(){
         return nama;
     }
+    public lembur getCurrentLembur(){
+        return currentStatusLembur;
+    }
+    public lembur setCurrentLembur(){
+        currentStatusLembur.status = true;
+        return currentStatusLembur;
+    }
     //Untuk melakukan request lembur
-    public StatusLembur requestLembur(){
+    public void requestLembur(){
         System.out.print("Masukan Lama Lembur: ");
         int waktuLembur = input.nextInt();
-        StatusLembur ha = new StatusLembur(nama, waktuLembur);
-        statuslembur = ha;
-        return statuslembur;
+        lembur ha = new lembur(nama, waktuLembur);
+        currentStatusLembur = ha; 
     }
     //Untuk perhitungan hasil total gaji, total jam kerja, total waktu terlambat, total lembur
     public void hitungGaji(){
-        Sistem sis = new Sistem(standarMasuk, standarKeluar, standarGaji, tapping.recordJamMasuk, tapping.recordJamKeluar,statuslembur.waktuLembur);
+        Sistem sis = new Sistem(standarMasuk, standarKeluar, standarGaji, tapping.recordJamMasuk, tapping.recordJamKeluar,currentStatusLembur.waktuLembur);
         totalJamKerja += sis.calculateJam();
         totalTerlambat += sis.calculateTerlambat();
         totalLembur += sis.calculateLembur();
         totalGaji += (totalJamKerja+sis.calculateLembur()-totalTerlambat) * standarGaji;
     }
-
 
 }

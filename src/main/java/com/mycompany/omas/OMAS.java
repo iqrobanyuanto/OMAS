@@ -14,7 +14,7 @@ import Divisi.*;
 public class OMAS {
 
     public static void main(String[] args) {
-        Manager man = new Manager("1", "Agus", 10, "08132293213", "jalan batu");
+        Manager man = new Manager("1", "Agung", 10, "08132293213", "jalan batu");
         man.setDurasiMasuk(0);
         man.setGaji(3000);
         man.setDurasiKeluar(9);
@@ -26,5 +26,16 @@ public class OMAS {
         System.out.println(man.totalJamKerja);
         System.out.println(man.totalTerlambat);
         System.out.println(man.totalLembur);
+        Administrator adm = new Administrator("agus","hehe");
+        lembur r = man.getCurrentLembur();
+        man.setCurrentLembur();
+        System.out.println(r.namaEmployee);
+        System.out.println(r.waktuLembur);
+        System.out.println(r.status);
+        KumpulanEmployee a = adm.getkumpulanEmployee();
+        for(Manager t:a.listManager){
+            System.out.println(t.getNamaEmployee());
+        }
+        
     }
 }

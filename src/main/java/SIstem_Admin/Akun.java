@@ -11,7 +11,7 @@ package SIstem_Admin;
 public class Akun {
     public String id;
     public String password;
-    
+    public Akun(){}
     public Akun(String id, String password){
         this.id = id;
         this.password = password;

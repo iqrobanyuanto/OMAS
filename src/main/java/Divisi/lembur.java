@@ -9,13 +9,15 @@ package Divisi;
  * @author Iqro Banyuanto
  */
 //Digunakan sebagai tipe data output method requestLembur
-public class StatusLembur {
+public class lembur {
     public String namaEmployee;
     public int waktuLembur;
+    public boolean status;
     
-    public StatusLembur(String nama, int waktuLembur){
+    public lembur(String nama, int waktuLembur){
         namaEmployee = nama;
         this.waktuLembur = waktuLembur;
+        status = false;
     }
    
 }

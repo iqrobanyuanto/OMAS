@@ -15,28 +15,26 @@ public class Pegawai extends Employee{
         super(idPegawai, nama, umur, nomor_telepon, alamat);
         this.nama_jabatan = "Pegawai";
     }
+        //setter getter 
     public String getNamaJabatan(){
         return nama_jabatan;
     }
-    public void setNamaJabatan(String nama){
-        nama_jabatan = nama;
-    }
     public int getGaji(){
-        return gaji;
+        return standarGaji;
     }
     public void setGaji(int gaji){
-        this.gaji = gaji;
+        standarGaji = gaji;
     }
-    public Date getDurasiMasuk(){
-        return durasiMasuk;
+    public int getDurasiMasuk(){
+        return standarMasuk;
     }
-    public void setDurasiMasuk(Date masuk){
-        durasiMasuk = masuk;
+    public void setDurasiMasuk(int masuk){
+        standarMasuk = masuk;
     }
-    public Date getDurasiKeluar(){
-        return durasiKeluar;
+    public int getDurasiKeluar(){
+        return standarKeluar;
     }
-    public void setDurasiKeluar(Date keluar){
-        durasiKeluar = keluar;
+    public void setDurasiKeluar(int keluar){
+        standarKeluar = keluar;
     }
 }
